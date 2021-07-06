@@ -10,4 +10,17 @@ button.addEventListener("click", () => {
 
 function getAllBeanVarieties() {
     return fetch(url).then(resp => resp.json());
-}
+};
+
+const displayBeans = (beans) => {
+    const stringBeans = beans.map((bean) => {
+        return `
+        <div class="beans">
+        <p>${bean.name}</p>
+        <p>${bean.region}</p>
+        <p>${bean.notes}</p>
+        </div>`
+    }).join("")
+
+    contentTarget.innerHTML = stringBeans
+};
